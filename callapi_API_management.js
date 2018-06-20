@@ -1,7 +1,7 @@
 function callAPI() 
 {
 var instance_id = document.getElementById("id_instance").value;
-var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/carvajal/information/";	
+var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/information/";	
 url_api= url_api + instance_id;
 
 // varaibles usadas para entregar los resultados
