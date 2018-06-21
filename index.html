@@ -15,22 +15,27 @@
 <h2>  AWS Carvajal </h2>
 </div>
 
-<div class="container" align="center">
+<div class="container" align="center" id="llenar">
   <input id="id_instance" type="text" placeholder="Enter InstanceID" required>
-  <button type="button" onclick="callAPI()">Restart Instance</button>
+  <button type="button" onclick="callAPI()">Search instance</button>
 </div>
 <script src= "callapi_API_management.js"></script>
 
-<table id="tabla1">
- <tr>
-   <th>firstname</th>
-   <th>lastname</th>
- </tr>
- <tr>
-   <th>test</th>
-   <th>test2</th>
- </tr>
-</table>
-<script> document.getElementById('tabla1').style.display='none'; </script>
+<div style="background-color:orange" align="center">
+<p id="result_instanceid"> </p> 
+</div>
+
+<div style="background-color:yellow" align="center">
+<p id="result_instancename"> </p> 
+</div>
+
+
+<div class="container" align="center" id="confirm_restart">
+  <button type="button" onclick="stopInstance()">Restart Instance</button>
+</div>
+
+<script> document.getElementById('result_instanceid').style.display='none'; </script>
+<script> document.getElementById('result_instancename').style.display='none'; </script>
+<script> document.getElementById('confirm_restart').style.display='none'; </script>
 </body>
 </html>
