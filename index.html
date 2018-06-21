@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<h1 align="center"> Reinicio Instancias AWS 2 </h1>
+<h1 align="center"> Gestión Instancias AWS </h1>
 <div class="imgcontainer" align="center">
     <img src="avanxoLogo.png" alt="Avatar" class="avatar">
 </div>
@@ -17,7 +17,7 @@
 
 <div class="container" align="center" id="llenar">
   <input id="id_instance" type="text" placeholder="Enter InstanceID" required>
-  <button type="button" onclick="callAPI()">Search instance</button>
+  <button type="button" onclick="getinformation()">Search instance</button>
 </div>
 <script src= "callapi_API_management.js"></script>
 
@@ -31,11 +31,15 @@
 
 
 <div class="container" align="center" id="confirm_restart">
-  <button type="button" onclick="stopInstance()">Restart Instance</button>
+  <button type="button" onclick="stopInstance()">Stop Instance</button>
+  <button type="button" onclick="rebootInstance()">Restart Instance</button>
+  <button type="button" onclick="startInstance()">Start Instance</button>
 </div>
+<script src= "callapi_API_management.js"></script>
+
 
 <script> document.getElementById('result_instanceid').style.display='none'; </script>
 <script> document.getElementById('result_instancename').style.display='none'; </script>
-<script> document.getElementById('confirm_restart').style.display='none'; </script>
+<script> document.getElementById('confirm_restart').style.display='none';</script>
 </body>
 </html>

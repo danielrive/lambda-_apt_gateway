@@ -1,6 +1,6 @@
 var instanceid2;
 
-function callAPI() 
+function getinformation() 
 {
 var instance_id = document.getElementById("id_instance").value;
 var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/information/";	
@@ -49,20 +49,62 @@ var xhttp = new XMLHttpRequest();
 
 if (this.readyState == 4 && this.status == 200) {
      response=JSON.parse(this.responseText);
-     //console.log(response);
-    // instanceid2= response.Reservations["0"].Instances["0"].InstanceId;
-     alert("reiniciando instancia");
-    // Name_instance=response.Reservations["0"].Instances["0"].Tags[1].Value;
-     //document.getElementById('llenar').style.display='block';
-    // document.getElementById('result_instanceid').style.display='block';
-     //document.getElementById('result_instanceid').innerHTML = instanceid2;
-     //document.getElementById('result_instancename').style.display='block';
-//     document.getElementById('result_instancename').innerHTML = Name_instance;
+     alert("stopping instancia");
+   
+	 }
+      };
+  xhttp.open("GET", url_api, true);
+  xhttp.send();	
+}
+
+function startInstance() 
+{
+alert(instanceid2);
+var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/start/";	
+url_api= url_api + instanceid2;
+
+// varaibles usadas para entregar los resultados
+var response;
+var Name_instance;
+
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+
+
+if (this.readyState == 4 && this.status == 200) {
+     response=JSON.parse(this.responseText);
+         alert("Starting  instancia");
 
 	 }
       };
   xhttp.open("GET", url_api, true);
   xhttp.send();	
 }
+
+
+function rebootInstance() 
+{
+alert(instanceid2);
+var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/reboot/";	
+url_api= url_api + instanceid2;
+
+// varaibles usadas para entregar los resultados
+var response;
+var Name_instance;
+
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+
+
+if (this.readyState == 4 && this.status == 200) {
+     response=JSON.parse(this.responseText);
+         alert("Starting  instancia");
+
+	 }
+      };
+  xhttp.open("GET", url_api, true);
+  xhttp.send();	
+}
+
 
 
