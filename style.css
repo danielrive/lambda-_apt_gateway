@@ -7,24 +7,16 @@ input[type=text], input[type=password] {
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
-    font-size: 16px;
+    box-sizing: border-box;
 }
-fondo{background: white url(fondo.gif) no-repeat center center;
-background-attachment: fixed;
-}
-#demo {
-background: #D0E4F5 url("http://html-css-js.com/images/smiley.png") no-repeat scroll 0 0;
-}
-
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
+    padding: 10px 15px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 35%;
-    font-size: 20px;
+    width: 30%;
 }
 button:hover {
     opacity: 0.8;
@@ -35,24 +27,15 @@ button:hover {
     background-color: #f44336;
 }
 .imgcontainer {
-    text-align: left;
-    margin: 0px 0 0px 0;
-
-}
-.titlecontainer {
     text-align: center;
-    margin: 0px 0 0px 0;
-    }
-
+    margin: 24px 0 12px 0;
+}
 img.avatar {
-    width: 20%;
-    top: 0px;
+    width: 10%;
+    border-radius: 20%;
 }
 .container {
-    padding: 1px; 
-    
-    
-
+    padding: 5px;
 }
 
 span.psw {
@@ -76,21 +59,24 @@ span.psw {
     margin-top: 20px;
 }
 
-
-#Font {
-font-family: "Georgia, serif, monospace;
-font-size: 26px;
-letter-spacing: 1px;
-word-spacing: -2px;
-color: #FFFFFF;
-font-weight: 10000;
-text-decoration: none solid rgb(68, 68, 68);
-font-style: normal;
-font-variant: normal;
-text-transform: none;
+table {
+    border-collapse: collapse;
+	width: 50%
+	
 }
 
+th {
+    background-color: #4CAF50;
+    color: white;
+}
 
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#4CAF58;}
 
 </style>
 

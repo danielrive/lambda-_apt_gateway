@@ -13,8 +13,8 @@
 <h1 align="center"> Gestión Instancias AWS </h1>
 </div>
 <div class="container" align="center" >
-<div style="position: absolute; left: 10px; top: 20px; height: 10px; width: 80px; padding: 1em;"> <img src="avanxo-logo-white.png" alt="logo" /> </div>
-<div style="position:absolute; right: 60px; top: -10px; height: 10px; width: 80px; padding: 1em;"> <img src="awsLogo.png" alt="Avatar" /> </div>
+<div style="position: absolute; left: 10px; top: 20px; height: 10px; width: 80px; padding: 1em;"> <img src="images/avanxo-logo-white.png" alt="logo" /> </div>
+<div style="position:absolute; right: 60px; top: -10px; height: 10px; width: 80px; padding: 1em;"> <img src="images/awsLogo.png" alt="Avatar" /> </div>
 </div>
 <br>
 <br>
@@ -38,15 +38,25 @@
 
 
 <div class="container" align="center" id="confirm_restart">
+<table>
+	<tr>
+		<th> Name Instance </th>
+		<th> Status Instance </th>
+		<th> Instance ID </th>
+		<th> Private IP </th> 
+</table>
+
   <button type="button" onclick="stopInstance()">Stop Instance</button>
   <button type="button" onclick="rebootInstance()">Restart Instance</button>
   <button type="button" onclick="startInstance()">Start Instance</button>
+
+  
 </div>
 <script src= "callapi_API_management.js"></script>
 
 
 <script> document.getElementById('result_instanceid').style.display='none'; </script>
 <script> document.getElementById('result_instancename').style.display='none'; </script>
-<script> document.getElementById('confirm_restart').style.display='none';</script>
+<script> document.getElementById('confirm_restart').style.display='block';</script>
 </body>
 </html>
