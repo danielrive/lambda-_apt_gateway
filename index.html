@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
+<div style="background-color:#ff5500" >
+
+<div id="Font" >
 <h1 align="center"> Gestión Instancias AWS </h1>
-<div class="imgcontainer" align="center">
-    <img src="avanxoLogo.png" alt="Avatar" class="avatar">
 </div>
-<div style="background-color:lightblue" align="center">
-<h2>  AWS Carvajal </h2>
+<div class="container" align="center" >
+<div style="position: absolute; left: 10px; top: 20px; height: 10px; width: 80px; padding: 1em;"> <img src="avanxo-logo-white.png" alt="logo" /> </div>
+<div style="position:absolute; right: 60px; top: -10px; height: 10px; width: 80px; padding: 1em;"> <img src="awsLogo.png" alt="Avatar" /> </div>
+</div>
+<br>
+<br>
 </div>
 
+<h1 align="center">  AWS Carvajal </h1>
 <div class="container" align="center" id="llenar">
-  <input id="id_instance" type="text" placeholder="Enter InstanceID" required>
-  <button type="button" onclick="getinformation()">Search instance</button>
+  <input id="id_instance" type="text" placeholder="Enter Private IP" required>
+  <br>
+  <button type="button" onclick="getinformation()"> Search instance</button>
 </div>
 <script src= "callapi_API_management.js"></script>
 
