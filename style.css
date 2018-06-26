@@ -1,5 +1,47 @@
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+.ribbon {
+   position: relative;
+   top: -16px;
+   right: -706px;
+}
+#content {
+    position: relative;
+}
+#content img {
+    position: absolute;
+    top: -100px;
+    right: 45px;
+}
+
+body, html {
+  min-height:5
+0%;
+  height:100%; /* if not working try vh instead of % */
+
+}
+
+body  {
+    
+    margin: -26px; /* Background Image Margin will be 0 */
+    background-repeat: no-repeat;  /* Background Image Will not repeat */
+    background-attachment: fixed;  /* Background Image will stay fixed */
+    background-size: cover; /* This will make background image width 100% and height 100% */
+    background: rgba(224,224,224,1);
+	
+}
+
+#Header
+{
+    width: 960px;
+    height: 950px;
+}
+#Content
+{
+    height: 100%;
+    width: 960px;
+}
+
+
 form {border: 3px solid #f1f1f1;}
 input[type=text], input[type=password] {
     width: 30%;
@@ -12,14 +54,19 @@ input[type=text], input[type=password] {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 30px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 30%;
+    border: 1px solid rgba(0,0,0,0.9);
+    font: normal normal bold 18px/normal "Lucida Console", Monaco, monospace;
+    border-radius: 5px;
 }
+
+
 button:hover {
-    opacity: 0.8;
+    opacity: 0.6;
 }
 .cancelbtn {
     width: auto;
@@ -35,6 +82,7 @@ img.avatar {
     border-radius: 20%;
 }
 .container {
+
     padding: 5px;
 }
 
@@ -51,6 +99,19 @@ span.psw {
        width: 100%;
     }
 }
+.Font{
+font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size:20px;
+letter-spacing: 1.6px;
+word-spacing: -1.6px;
+color: #FFFFFF;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
 #field_instance_id {
     width: 100%;
     padding: 50px 0;
@@ -60,7 +121,7 @@ span.psw {
 }
 
 table {
-    border-collapse: collapse;
+        border: 1px solid black;
 	width: 50%
 	
 }
@@ -68,15 +129,39 @@ table {
 th {
     background-color: #4CAF50;
     color: white;
+    border: 1px solid black;
 }
 
 th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    border: 1px solid black;
 }
 
-tr:hover {background-color:#4CAF58;}
+
+tr:hover {background-color:#ffb380;}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ff751a;
+  width: 15px;
+  height: 15px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 </style>
 

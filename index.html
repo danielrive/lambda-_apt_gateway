@@ -1,62 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,user-scalable=no">
+<meta name="HandheldFriendly" content="true">
+
 <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
-<div style="background-color:#ff5500" >
 
-<div id="Font" >
-<h1 align="center"> Gestión Instancias AWS </h1>
+<div style="background-color:#ff5500;height:150px; width:1390px;">
+	<div class="Font" >
+		<br>
+		<h1 align="center"> AWS Instances Management </h1>
+	</div>
+
+	<div style="position: absolute; left: 10px; top: 20px; height: 10px; width: 80px; padding: 1em;"> 
+		<img src="images/avanxo-logo-white.png" alt="logo" /> 
+	</div>
+	<div id="content">
+		 <img src="images/awsLogo.png" class="ribbon"/> 
+	</div>
+
 </div>
-<div class="container" align="center" >
-<div style="position: absolute; left: 10px; top: 20px; height: 10px; width: 80px; padding: 1em;"> <img src="images/avanxo-logo-white.png" alt="logo" /> </div>
-<div style="position:absolute; right: 60px; top: -10px; height: 10px; width: 80px; padding: 1em;"> <img src="images/awsLogo.png" alt="Avatar" /> </div>
-</div>
+
 <br>
 <br>
-</div>
 
 <h1 align="center">  AWS Carvajal </h1>
-<div class="container" align="center" id="llenar">
-  <input id="id_instance" type="text" placeholder="Enter Private IP" required>
-  <br>
-  <button type="button" onclick="getinformation()"> Search instance</button>
+<div class="container" align="center" id="LoadIcon">
+	<div class="loader" align="center"></div>
 </div>
+<div class="container" align="center" id="InputIp">
+ 	 <input id="InputPrivateIp" type="text" placeholder="Enter Private IP" required>
+	  <br>
+	  <button type="button" onclick="getinformation()"> Search instance</button>
+</div>
+
 <script src= "callapi_API_management.js"></script>
 
-<div style="background-color:orange" align="center">
-<p id="result_instanceid"> </p> 
+<div class="container" align="center" id="TableResults">
+	<table>
+		<tr>
+			<th> Name Instance </th>
+			<th> Status Instance </th>
+			<th> Instance ID </th>
+			<th> Private IP </th>
+	        </tr>
+
+		<tr> 
+			<td id="nameT"> - - - - </td>
+			<td id="statusT"> - - - -</td>
+			<td id="InstanceIdT"> - - -</td>
+			<td id="PrivateIpT"> - - -</td>
+		</tr>
+	</table>
+<br>
+<br>
+<br>
+<button type="button" onclick="startInstance()">Start Instance</button>
+<button type="button" class="button2" onclick="stopInstance()">Stop Instance</button>
+<br>
+<br>
+<button type="button" onclick="getinformation()">Refresh Status</button>
+<button type="button" onclick="NewSearch()"> New Search </button>
 </div>
 
-<div style="background-color:yellow" align="center">
-<p id="result_instancename"> </p> 
-</div>
+<script> document.getElementById('TableResults').style.display='none';</script>
+<script> document.getElementById('LoadIcon').style.display='none';</script>
 
-
-<div class="container" align="center" id="confirm_restart">
-<table>
-	<tr>
-		<th> Name Instance </th>
-		<th> Status Instance </th>
-		<th> Instance ID </th>
-		<th> Private IP </th> 
-</table>
-
-  <button type="button" onclick="stopInstance()">Stop Instance</button>
-  <button type="button" onclick="rebootInstance()">Restart Instance</button>
-  <button type="button" onclick="startInstance()">Start Instance</button>
-
-  
-</div>
 <script src= "callapi_API_management.js"></script>
 
 
-<script> document.getElementById('result_instanceid').style.display='none'; </script>
-<script> document.getElementById('result_instancename').style.display='none'; </script>
-<script> document.getElementById('confirm_restart').style.display='block';</script>
 </body>
 </html>
