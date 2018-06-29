@@ -3,6 +3,7 @@ var instanceid2;
 function getinformation() 
 {
 document.getElementById('LoadIcon').style.display='block';
+//var instance_id = document.getElementById("InputPrivateIp").validity.valid;
 var instance_id = document.getElementById("InputPrivateIp").value;
 var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/information/";	
 url_api= url_api + instance_id;
@@ -17,10 +18,31 @@ var xhttp = new XMLHttpRequest();
 
 
 if (this.readyState == 4 && this.status == 200) {
-     response=JSON.parse(this.responseText);
-     console.log(response);
+    
+   
+	 //return Object.keys(response)
+    response=JSON.parse(this.responseText);
+    console.log(response);
+	var longitud_array=response.Reservations.length;
+	if (longitud_array==0)
+	 {
+		 alert("RECURSO NO ENCONTRADO, VERIFIQUE QUE LA IP NO TENGA ESPACIOS");
+		 alert("SI EL SERVIDOR ESTÁ UTILIZANDO MÁS DE UNA DIRECCION IP, USE LA PRIMERA ");
+		 location.reload();
+	 }
+	 else
+	 {
+     var longitud_tags= response.Reservations["0"].Instances["0"].Tags.length;
+	 for (var i=0; i < longitud_tags; i++)
+		{
+			if (response.Reservations["0"].Instances["0"].Tags[i].Key == "Name")
+			{
+				Name_instance=response.Reservations["0"].Instances["0"].Tags[i].Value;
+			}
+			
+		}
+	
      instanceid2= response.Reservations["0"].Instances["0"].InstanceId;
-     Name_instance= response.Reservations["0"].Instances["0"].Tags[0].Value;
      Status_instance= response.Reservations["0"].Instances["0"].State.Name;
      Private_Ip_Instance= response.Reservations["0"].Instances["0"].PrivateIpAddress;
      document.getElementById('InputIp').style.display='none';
@@ -31,7 +53,8 @@ if (this.readyState == 4 && this.status == 200) {
      document.getElementById('PrivateIpT').innerHTML = Private_Ip_Instance;
      document.getElementById('LoadIcon').style.display='none';
 	 }
- 
+	 }
+	 
       };
   xhttp.open("GET", url_api, true);
   xhttp.send();	

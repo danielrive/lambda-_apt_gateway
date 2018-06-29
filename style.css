@@ -55,10 +55,10 @@ button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 30px;
-    margin: 8px 0;
+    margin: 22px;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: 18%;
     border: 1px solid rgba(0,0,0,0.9);
     font: normal normal bold 18px/normal "Lucida Console", Monaco, monospace;
     border-radius: 5px;
@@ -67,6 +67,7 @@ button {
 
 button:hover {
     opacity: 0.6;
+	
 }
 .cancelbtn {
     width: auto;
@@ -112,6 +113,33 @@ font-variant: normal;
 text-transform: none;
 }
 
+.FontTable {
+font-family: "Times New Roman", Times, serif;
+font-size: 19px;
+letter-spacing: 0.8px;
+word-spacing: 1.8px;
+color: #FFFFFF;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: capitalize;
+}
+
+.FontTableR {
+font-family: "Times New Roman", Times, serif;
+font-size: 17px;
+letter-spacing: 2px;
+word-spacing: 1.8px;
+color: #191919;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: capitalize;
+}
+
+
 #field_instance_id {
     width: 100%;
     padding: 50px 0;
@@ -122,7 +150,7 @@ text-transform: none;
 
 table {
         border: 1px solid black;
-	width: 50%
+	width: 58%
 	
 }
 
@@ -140,7 +168,7 @@ th, td {
 }
 
 
-tr:hover {background-color:#ffb380;}
+tr:hover {background-color: #ffe0cc;}
 
 .loader {
   border: 16px solid #f3f3f3;

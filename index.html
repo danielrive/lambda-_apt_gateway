@@ -30,7 +30,9 @@
 <br>
 
 <h1 align="center">  AWS Carvajal </h1>
+<p align="center"> Ingrese la dirección IP privada que desea buscar SIN espacios </p>
 <div class="container" align="center" id="LoadIcon">
+	
 	<div class="loader" align="center"></div>
 </div>
 <div class="container" align="center" id="InputIp">
@@ -43,21 +45,22 @@
 
 <div class="container" align="center" id="TableResults">
 	<table>
-		<tr>
+		<tr class="FontTable">
+			
 			<th> Name Instance </th>
 			<th> Status Instance </th>
 			<th> Instance ID </th>
 			<th> Private IP </th>
-	        </tr>
+	    
+		</tr>
 
-		<tr> 
+		<tr class="FontTableR"> 
 			<td id="nameT"> - - - - </td>
 			<td id="statusT"> - - - -</td>
 			<td id="InstanceIdT"> - - -</td>
 			<td id="PrivateIpT"> - - -</td>
 		</tr>
 	</table>
-<br>
 <br>
 <br>
 <button type="button" onclick="startInstance()">Start Instance</button>
