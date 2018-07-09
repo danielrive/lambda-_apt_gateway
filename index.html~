@@ -35,13 +35,14 @@
 <br>
 <br>
 
-<h1 align="center" class="FontTittles">  AWS Carvajal </h1>
+<h1 align="center">  AWS Carvajal </h1>
+<p align="center" style="font-size:120%;"> Ingrese la dirección IP privada que desea buscar SIN espacios </p>
 <div class="container" align="center" id="LoadIcon">
+	
 	<div class="loader" align="center"></div>
 </div>
 <div class="container" align="center" id="InputIp">
-	<p> Ingrese la dirección IP Privada(SIN espacios)  de la Instancia que desea buscar </p>
-	<input id="InputPrivateIp" type="text" placeholder="Enter Private IP" required>
+ 	 <input id="InputPrivateIp" type="text" placeholder="Enter Private IP" required>
 	  <br>
 	  <button type="button" onclick="getinformation()"> Search instance</button>
 </div>
@@ -68,7 +69,7 @@
 	</table>
 <br>
 <br>
-<button type="button" id="stopBtn">Stop Instance</button>
+<button type="button" class="button2" onclick="stopInstance()">Stop Instance</button>
 <button type="button" onclick="startInstance()">Start Instance</button>
 <br>
 <br>

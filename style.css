@@ -139,6 +139,19 @@ font-variant: normal;
 text-transform: capitalize;
 }
 
+.FontTittles {
+font-family: "Times New Roman", Times, serif;
+font-size: 40px;
+letter-spacing: 2px;
+word-spacing: 1.8px;
+color: #191919;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: capitalize;
+}
+
 
 #field_instance_id {
     width: 100%;

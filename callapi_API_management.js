@@ -1,5 +1,6 @@
 var instanceid2;
 var Private_Ip_Instance;
+var Status_instance;
 
 function getinformation() 
 {
@@ -25,12 +26,9 @@ function getinformation()
 			}
 			else
 			{
-				var p= document.createElement("p");
-				var node= document.createTextNode("nuevo elemento creado");
-				p.appendChild(node);
-				var div= document.getElementById("InputId");
-				div.appendChild(p);
-
+				
+				var stopbtn = document.getElementById("stopBtn");
+				stopbtn.addEventListener("click",stopInstance);
 				var longitud_tags= response.Reservations["0"].Instances["0"].Tags.length;
 				for (var i=0; i < longitud_tags; i++)
 				{
@@ -44,7 +42,7 @@ function getinformation()
 				instanceid2= response.Reservations["0"].Instances["0"].InstanceId;
 				Status_instance= response.Reservations["0"].Instances["0"].State.Name;
 				Private_Ip_Instance= response.Reservations["0"].Instances["0"].PrivateIpAddress;
-				document.getElementById('InputIp').style.display='block';
+				document.getElementById('InputIp').style.display='none';
 				document.getElementById('TableResults').style.display='block';
 				document.getElementById('nameT').innerHTML = Name_instance;
 				document.getElementById('statusT').innerHTML = Status_instance;
@@ -61,6 +59,13 @@ function getinformation()
 
 function stopInstance() 
 {
+var x="stopped"
+
+	if( Status_instance.localeCompare(x) == 0)
+		{
+			alert("La instancia ya está DETENIDA");
+		}
+	else {
 	
 	var notification1 = confirm("La instancia con IP  " + Private_Ip_Instance + "  va a ser DETENIDA, click en Aceptar para continuar");
 	if(notification1 == true)
@@ -83,8 +88,9 @@ function stopInstance()
 			xhttp.open("GET", url_api, true);
 			xhttp.send();	
 			}
-	
-  }
+	   }	
+}
+
 
 function startInstance() 
 {
