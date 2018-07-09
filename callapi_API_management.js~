@@ -29,7 +29,7 @@ function getinformation()
 				var node= document.createTextNode("nuevo elemento creado");
 				p.appendChild(node);
 				var div= document.getElementById("InputId");
-				div.appendChild(p);
+				div.appenChild(p);
 
 				var longitud_tags= response.Reservations["0"].Instances["0"].Tags.length;
 				for (var i=0; i < longitud_tags; i++)
