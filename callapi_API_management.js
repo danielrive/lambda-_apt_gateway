@@ -14,8 +14,14 @@ function getinformation()
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) 
-		{
+		
+		switch(this.readyState) {
+		  case(4):
+			switch(this.status)
+			  case(200):
+		 
+//		if (this.readyState == 4 && this.status == 200) 
+//		{
 			response=JSON.parse(this.responseText);
 			var longitud_array=response.Reservations.length;
 			if (longitud_array==0)
@@ -26,40 +32,14 @@ function getinformation()
 			}
 			else
 			{
-				
-				var stopbtn = document.getElementById("stopBtn");
-				var startbtn = document.getElementById("startBtn");
-				var refhbtn = document.getElementById("refhBtn")							
-				var newshbtn = document.getElementById("newshBtn");
-			
-				stopbtn.addEventListener("click",stopInstance);
-				startbtn.addEventListener("click",startInstance);
-				refhbtn.addEventListener("click",getinformation);
-				newshbtn.addEventListener("click",NewSearch);
-				
-				
-				var longitud_tags= response.Reservations["0"].Instances["0"].Tags.length;
-				for (var i=0; i < longitud_tags; i++)
-				{
-					if (response.Reservations["0"].Instances["0"].Tags[i].Key == "Name")
-					{
-					Name_instance=response.Reservations["0"].Instances["0"].Tags[i].Value;
-					}
-			
-				}
-	
-				instanceid2= response.Reservations["0"].Instances["0"].InstanceId;
-				Status_instance= response.Reservations["0"].Instances["0"].State.Name;
-				Private_Ip_Instance= response.Reservations["0"].Instances["0"].PrivateIpAddress;
-				document.getElementById('InputIp').style.display='none';
-				document.getElementById('TableResults').style.display='block';
-				document.getElementById('nameT').innerHTML = Name_instance;
-				document.getElementById('statusT').innerHTML = Status_instance;
-				document.getElementById('InstanceIdT').innerHTML = instanceid2;
-				document.getElementById('PrivateIpT').innerHTML = Private_Ip_Instance;
-				document.getElementById('LoadIcon').style.display='none';
-			}
+				ButtonsOn();	
+			 	Fill_Variables(response);
+
+			 }
 		}
+			break;
+			break;
+	  	}
 	 
       };
 	xhttp.open("GET", url_api, true);
@@ -155,4 +135,35 @@ function compare2Status(Status2)
 	return 1;
 }
 
+function ButtonsOn()
+{
+  var stopbtn = document.getElementById("stopBtn");
+  var startbtn = document.getElementById("startBtn");
+  var refhbtn = document.getElementById("refhBtn")							
+  var newshbtn = document.getElementById("newshBtn");
+  stopbtn.addEventListener("click",stopInstance);
+  startbtn.addEventListener("click",startInstance);
+  refhbtn.addEventListener("click",getinformation);
+  newshbtn.addEventListener("click",NewSearch);
+}
 
+function Fill_Variables(response)
+{
+var longitud_tags= response.Reservations["0"].Instances["0"].Tags.length;
+ for (var i=0; i < longitud_tags; i++)
+  {
+   if (response.Reservations["0"].Instances["0"].Tags[i].Key == "Name")
+     Name_instance=response.Reservations["0"].Instances["0"].Tags[i].Value;
+  }
+  
+  instanceid2= response.Reservations["0"].Instances["0"].InstanceId;
+  Status_instance= response.Reservations["0"].Instances["0"].State.Name;
+  Private_Ip_Instance= response.Reservations["0"].Instances["0"].PrivateIpAddress;
+  document.getElementById('InputIp').style.display='none';
+  document.getElementById('TableResults').style.display='block';
+  document.getElementById('nameT').innerHTML = Name_instance;
+  document.getElementById('statusT').innerHTML = Status_instance;
+  document.getElementById('InstanceIdT').innerHTML = instanceid2;
+  document.getElementById('PrivateIpT').innerHTML = Private_Ip_Instance;
+  document.getElementById('LoadIcon').style.display='none';
+}
