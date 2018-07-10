@@ -28,7 +28,16 @@ function getinformation()
 			{
 				
 				var stopbtn = document.getElementById("stopBtn");
+				var startbtn = document.getElementById("startBtn");
+				var refhbtn = document.getElementById("refhBtn")							
+				var newshbtn = document.getElementById("newshBtn");
+			
 				stopbtn.addEventListener("click",stopInstance);
+				startbtn.addEventListener("click",startInstance);
+				refhbtn.addEventListener("click",getinformation);
+				newshbtn.addEventListener("click",NewSearch);
+				
+				
 				var longitud_tags= response.Reservations["0"].Instances["0"].Tags.length;
 				for (var i=0; i < longitud_tags; i++)
 				{
@@ -59,12 +68,8 @@ function getinformation()
 
 function stopInstance() 
 {
-var x="stopped"
-
-	if( Status_instance.localeCompare(x) == 0)
-		{
-			alert("La instancia ya está DETENIDA");
-		}
+	if( compareStatus(Status_instance) == 0)
+		alert("La instancia ya está Detenida");
 	else {
 	
 	var notification1 = confirm("La instancia con IP  " + Private_Ip_Instance + "  va a ser DETENIDA, click en Aceptar para continuar");
@@ -94,35 +99,60 @@ var x="stopped"
 
 function startInstance() 
 {
+	if(compare2Status(Status_instance)== 0)
+		alert("La Instancia ya se encuentra en estado Running");
+	else
+	{
 	
-	var notification1 = confirm("La instancia con IP  " + Private_Ip_Instance + "  va a ser INICIADA, click en Aceptar para continuar");
-	if(notification1 == true)
-		{
-			document.getElementById('LoadIcon').style.display='block';
-			var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/start/";	
-			url_api= url_api + instanceid2;
-
-			var response;
+		var notification1 = confirm("La instancia con IP  " + Private_Ip_Instance + "  va a ser INICIADA, click en Aceptar para continuar");
+		if(notification1 == true)
+			{
+				document.getElementById('LoadIcon').style.display='block';
+				var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/start/";	
+				url_api= url_api + instanceid2;
 	
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-
-				if (this.readyState == 4 && this.status == 200) {
-					response=JSON.parse(this.responseText);
-					document.getElementById('LoadIcon').style.display='none';
-					getinformation();
-				 }
-
-			};
-			xhttp.open("GET", url_api, true);
-			xhttp.send();	
-		}
+				var response;
+		
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+	
+					if (this.readyState == 4 && this.status == 200) {
+						response=JSON.parse(this.responseText);
+						document.getElementById('LoadIcon').style.display='none';
+						getinformation();
+					 }
+	
+				};
+		xhttp.open("GET", url_api, true);
+		xhttp.send();	
+			}
+	}
 }
 
 function NewSearch() 
 {
-location.reload();
+  location.reload();
 }
 
+function compareStatus(Status)
+{
+  var x="stopped";
+
+  if( Status.localeCompare(x) == 0)
+	return 0;
+  else
+	return 1;
+
+}
+
+function compare2Status(Status2)
+{
+  var x="running";
+ 
+  if(Status2.localeCompare(x)==0)
+	return 0;
+  else
+	return 1;
+}
 
 
