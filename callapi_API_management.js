@@ -14,32 +14,24 @@ function getinformation()
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
-		
-		switch(this.readyState) {
-		  case(4):
-			switch(this.status)
-			  case(200):
-		 
-//		if (this.readyState == 4 && this.status == 200) 
-//		{
-			response=JSON.parse(this.responseText);
-			var longitud_array=response.Reservations.length;
-			if (longitud_array==0)
-			{
-				alert("RECURSO NO ENCONTRADO, VERIFIQUE QUE LA IP NO TENGA ESPACIOS");
-				alert("SI EL SERVIDOR ESTÁ UTILIZANDO MÁS DE UNA DIRECCION IP, USE LA PRIMERA ");
-				location.reload();
-			}
-			else
-			{
-				ButtonsOn();	
-			 	Fill_Variables(response);
+		if (this.readyState == 4 && this.status == 200) 
+		  {
+		    response=JSON.parse(this.responseText);
+		    var longitud_array=response.Reservations.length;
+		    if (longitud_array==0)
+		     {
+			alert("RECURSO NO ENCONTRADO, VERIFIQUE QUE LA IP NO TENGA ESPACIOS");
+			alert("SI EL SERVIDOR ESTÁ UTILIZANDO MÁS DE UNA DIRECCION IP, USE LA PRIMERA ");
+			location.reload();
+		     } 
+		    else
+		     {
+		        ButtonsOn();	
+			Fill_Variables(response);
 
-			 }
-		}
-			break;
-			break;
-	  	}
+	             }
+		          
+	           }
 	 
       };
 	xhttp.open("GET", url_api, true);
