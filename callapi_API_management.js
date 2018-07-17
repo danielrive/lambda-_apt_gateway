@@ -109,8 +109,9 @@ function NewSearch()
 function compareStatus(Status)
 {
   var x="stopped";
+  var x2="stopping";
 
-  if( Status.localeCompare(x) == 0)
+  if( Status.localeCompare(x) == 0 || Status.localeCompare(x2)==0)
 	return 0;
   else
 	return 1;
@@ -120,8 +121,9 @@ function compareStatus(Status)
 function compare2Status(Status2)
 {
   var x="running";
+  var x2="pending";
  
-  if(Status2.localeCompare(x)==0)
+  if(Status2.localeCompare(x)==0 || Status2.localeCompare(x2)==0)
 	return 0;
   else
 	return 1;
