@@ -7,7 +7,7 @@ function getinformation()
 {
 	document.getElementById('LoadIcon').style.display='block';
 	var instance_id = document.getElementById("InputPrivateIp").value;
-	var url_api = "https://qstbpw54q8.execute-api.us-east-1.amazonaws.com/test/avanxo/information/";	
+	var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/information/";	
 	url_api= url_api + instance_id;
 
 	var response;
