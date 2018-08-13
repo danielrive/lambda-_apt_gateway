@@ -1,12 +1,13 @@
 var instanceid2;
 var Private_Ip_Instance;
 var Status_instance;
+var msg1="error";
 
 function getinformation() 
 {
 	document.getElementById('LoadIcon').style.display='block';
 	var instance_id = document.getElementById("InputPrivateIp").value;
-	var url_api = "https://6bblx4poja.execute-api.us-east-1.amazonaws.com/avanxo/carvajal/information/";	
+	var url_api = "https://qstbpw54q8.execute-api.us-east-1.amazonaws.com/test/avanxo/information/";	
 	url_api= url_api + instance_id;
 
 	var response;
@@ -17,11 +18,13 @@ function getinformation()
 		if (this.readyState == 4 && this.status == 200) 
 		  {
 		    response=JSON.parse(this.responseText);
-		    var longitud_array=response.Reservations.length;
-		    if (longitud_array==0)
+		    
+	            //var longitud_array=response.Reservations.length;
+		    if ( response.Status_Fail == "error")
 		     {
+			console.log(response.Status_Fail);
 			alert("RECURSO NO ENCONTRADO, VERIFIQUE QUE LA IP NO TENGA ESPACIOS");
-			alert("SI EL SERVIDOR ESTÁ UTILIZANDO MÁS DE UNA DIRECCION IP, USE LA PRIMERA ");
+			alert("SI EL SERVIDOR ESTÁ UTILIZANDO MÁS DE UNA DIRECCION IP, USE LA PRIMARIA ");
 			location.reload();
 		     } 
 		    else
@@ -143,16 +146,10 @@ function ButtonsOn()
 
 function Fill_Variables(response)
 {
-var longitud_tags= response.Reservations["0"].Instances["0"].Tags.length;
- for (var i=0; i < longitud_tags; i++)
-  {
-   if (response.Reservations["0"].Instances["0"].Tags[i].Key == "Name")
-     Name_instance=response.Reservations["0"].Instances["0"].Tags[i].Value;
-  }
-  
-  instanceid2= response.Reservations["0"].Instances["0"].InstanceId;
-  Status_instance= response.Reservations["0"].Instances["0"].State.Name;
-  Private_Ip_Instance= response.Reservations["0"].Instances["0"].PrivateIpAddress;
+  Name_instance = response.Instance_Name
+  instanceid2 = response.Instance_Id;
+  Status_instance= response.Instance_Status;
+  Private_Ip_Instance= response.Instance_IP;
   document.getElementById('InputIp').style.display='none';
   document.getElementById('TableResults').style.display='block';
   document.getElementById('nameT').innerHTML = Name_instance;
